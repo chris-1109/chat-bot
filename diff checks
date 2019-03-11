@@ -1,0 +1,48 @@
+---YOUTUBE------------------
+<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLe_bRVLGaVw76lQ6kQfk9ppITCZBSAIa_&index=0" allowfullscreen></iframe>
+
+https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=despacito&key=AIzaSyADbP0UcY9TzynSrudRxfARQ06Rh56ElVg
+
+<!DOCTYPE HTML>
+<?php
+
+$search="sanam+rey";
+$url = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q='.$search.'&key=AIzaSyADbP0UcY9TzynSrudRxfARQ06Rh56ElVg';
+$data = file_get_contents($url);
+$wizards = json_decode($data, true);
+$part = $wizards['items'][0]['id']['videoId'];
+echo '<iframe width="560" height="315" src="https://www.youtube.com/embed/'.$part.'" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+?>
+
+
+-------TEXT TO VOICE----------------------
+<!DOCTYPE HTML>
+<html>
+    
+    <head><title>Voice conersion</title></head>
+<body>
+
+    <input id="mat" type="text" placeholder="enter">
+<input onclick='fun()' type='button' value='🔊 Play' />
+
+    <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
+    <script>
+        function fun(){
+    responsiveVoice.speak(document.getElementById("mat").value);}
+    </script>
+    
+    </body>
+    </html>
+    
+    
+-----UPCOMING MOVIES--------------
+
+<iframe width="666" height="315" src="https://www.bollymoviereviewz.com/2013/05/upcoming-hollywood-movies-2013-release.html"></iframe>
+
+-----SEARCH--------------------------
+https://cse.google.com/cse?cx=016537984346795932397:u5ywfdhm3yu&q=ravi
+
+-----NEWS------------------------
+<iframe src="https://timesofindia.indiatimes.com/home/headlines" width:="100%"></iframe>
+    
+    
