@@ -15,6 +15,7 @@ echo '<iframe width="560" height="315" src="https://www.youtube.com/embed/'.$par
 ?>
 
 
+<embed src="https://www.youtube.com/embed/videoseries?list=PLe_bRVLGaVw76lQ6kQfk9ppITCZBSAIa_&index=0" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="false" width="361" height="25"></embed>
 -------TEXT TO VOICE----------------------
 <!DOCTYPE HTML>
 <html>
@@ -40,7 +41,8 @@ echo '<iframe width="560" height="315" src="https://www.youtube.com/embed/'.$par
 <iframe width="666" height="315" src="https://www.bollymoviereviewz.com/2013/05/upcoming-hollywood-movies-2013-release.html"></iframe>
 
 -----SEARCH--------------------------
-https://cse.google.com/cse?cx=016537984346795932397:u5ywfdhm3yu&q=ravi
+https://cse.google.com/cse?cx=016537984346795932397:u5ywfdhm3yu&q=what+is+infactuation
+https://www.googleapis.com/customsearch/v1?key=AIzaSyADbP0UcY9TzynSrudRxfARQ06Rh56ElVg&cx=016537984346795932397:u5ywfdhm3yu&q=what+is+infactuation
 
 -----NEWS------------------------
 <iframe src="https://timesofindia.indiatimes.com/home/headlines" width:="100%"></iframe>

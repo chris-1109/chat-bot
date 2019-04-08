@@ -22,29 +22,32 @@ while($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
 switch($key){
     case 'hello': {
         mysqli_query($conn,"insert into message values('Hello there','sent',$max+2)");
+        header('location: index.php');
         break;}
         
         
     
     case 'call': {
-        mysqli_query($conn,"insert into message values('my developers are still working on it','sent',$max+2)");
+        header('location: call.php?text='.$text.'&max='.$max);
         break;}
         
         
     
-    case 'send': { mysqli_query($conn,"insert into message values('my developers are still working on it','sent',$max+2)");
+    case 'send': { 
+        header('location: send.php?text='.$text.'&max='.$max);
         break;}
     
         
     
     case 'directions': { 
-        $display="<script>window.open('https://maps.google.com');</script>you can view your directions in this site";
-        mysqli_query($conn,"insert into message values('$display','dis',$max+2)");
+        header('location: map.php?text='.$text.'&max='.$max);
         break;}
         
     
     
-    case 'remind': { mysqli_query($conn,"insert into message values('my developers are still working on it','sent',$max+2)");
+    case 'remind': { 
+        mysqli_query($conn,"insert into message values('my developers are still working on it','sent',$max+2)");
+        header('location: index.php');
         break;}
         
     
@@ -55,12 +58,16 @@ switch($key){
     
         
     
-    case 'joke': { mysqli_query($conn,"insert into message values('my developers are still working on it','sent',$max+2)");
+    case 'joke': { 
+        mysqli_query($conn,"insert into message values('my developers are still working on it','sent',$max+2)");
+        header('location: index.php');
         break;}
     
         
     
-    case 'photo': { mysqli_query($conn,"insert into message values('my developers are still working on it','sent',$max+2)");
+    case 'photo': { 
+        mysqli_query($conn,"insert into message values('my developers are still working on it','sent',$max+2)");
+        header('location: index.php');
         break;}
     
         
@@ -68,6 +75,7 @@ switch($key){
     case 'new':{ 
         $display='<br><iframe src="https://timesofindia.indiatimes.com/home/headlines" width="800" height="400"></iframe>';
         mysqli_query($conn,"insert into message values('$display','dis',$max+2)");
+        header('location: index.php');
         break;}
         
     
@@ -76,6 +84,7 @@ switch($key){
         if(rand(0,1)==1){
             mysqli_query($conn,"insert into message values('You got Heads','sent',$max+2)");}
         else{mysqli_query($conn,"insert into message values('You got tails','sent',$max+2)");}
+        header('location: index.php');
         break;}
         
     
@@ -84,7 +93,9 @@ switch($key){
         if(strpos($text,'dice') !== false){
             $roll=rand(1,6);
             mysqli_query($conn,"insert into message values('You got $roll','sent',$max+2)");
-        }break;}
+        }
+        header('location: index.php');
+        break;}
         
     
     
@@ -92,11 +103,16 @@ switch($key){
         if(strpos($text,'report') !== false){mysqli_query($conn,"delete from report");
             mysqli_query($conn,"insert into message values('Report is cleaned','sent',$max+2)");}
         else{mysqli_query($conn,"delete from message");}
+        header('location: index.php');
         break;}
     
     
         
     case 'report': {
+        if(strpos($text,'show') !== false){
+            header('location: http://localhost/phpmyadmin/sql.php?server=1&db=bot&table=report&pos=0');
+        }
+        else{
         $min=$max-4;
         $result = mysqli_query($conn,"select * from message limit $min,$max");
         while($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
@@ -104,7 +120,8 @@ switch($key){
         $type=$row['type'];
         mysqli_query($conn,"insert into report values('$sentence','$type')");}
         mysqli_query($conn,"insert into report values('---','----')");
-        mysqli_query($conn,"insert into message values('Sussefully reported<br>we are sorry for the inconvenienece','sent',$max+2)");
+        mysqli_query($conn,"insert into message values('reported, <br>we are sorry for the inconvenience','sent',$max+2)");}
+        header('location: index.php');
         break;}
     
         
@@ -115,20 +132,17 @@ switch($key){
         $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
         $text=$row['sentence'];
         $k=0;
+        header('location: index.php');
         break;}
+    
     
         
-    
-    case 'know': {  
-        if(strpos($text,'me') !== false){mysqli_query($conn,"insert into message values('you are my developer','sent',$max+2)");}
-        else{
-        mysqli_query($conn,"insert into message values('my developers are still working on it','sent',$max+2)");}
-        break;}
-    
     case 'thank': {
         mysqli_query($conn,"insert into message values('I am glad that you have a good experience','sent',$max+2)");
+        header('location: index.php');
         break;}    
-    
+
+        
     default: {
         $min=$max-4;
         $result = mysqli_query($conn,"select * from message limit $min,$max");
@@ -137,9 +151,9 @@ switch($key){
         $type=$row['type'];
         mysqli_query($conn,"insert into report values('$sentence','$type')");}
         mysqli_query($conn,"insert into report values('---','----')");
-        mysqli_query($conn,"insert into message values('i did not understand','sent',$max+2)");
-        echo $max;$k=1;}
+        mysqli_query($conn,"insert into message values('I am sorry, i didn\'t get it','sent',$max+2)");
+        echo $max;$k=1;
+    header('location: index.php');}
 }}
-if($key!='play'){
-header('location: index.php');}
+
 ?>

@@ -15,7 +15,10 @@ $mailadd=$_POST['mail'];
 //9494229550@sms.textlocal.in
 $sub=$_POST['sub'];
 $body=$_POST['body'];
-$name=$_POST['name'];
+$max=$_POST['max'];
+mysqli_query($conn,"insert into message values('message is sent to $mailadd','sent',$max+2)");
+if($sub=='message'){
+    $mailadd=$mailadd."@sms.textlocal.in";}
 
 try {
     //Server settings
@@ -39,7 +42,6 @@ try {
     $mail->send();
     
 } catch (Exception $e) {
-    
 }
 header('location: index.php');
 ?>

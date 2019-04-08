@@ -44,7 +44,7 @@
     
     <div id="action"></div><br><br><br><br>
     <form action="analyse.php" method="post">
-    <input type="text" name="text" id="text" autocomplete="off" spellcheck="false">&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" name="text" id="text" autocomplete="off" spellcheck="false" autofocus>&nbsp;&nbsp;&nbsp;&nbsp;
     <button><img src="send.jpg" width="35px"></button>
     </form>
 </div>    </center>
