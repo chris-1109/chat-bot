@@ -6,13 +6,12 @@ $max=$_GET['max'];
 if(strpos($text,'music')!==false){
     $text='<div style="position:relative;width:250px;height:50px;overflow:hidden;">
 <div style="position:absolute;top:-276px;left:-5px">
-<iframe width="400" height="310" src="https://www.youtube.com/embed/videoseries?list=PLe_bRVLGaVw76lQ6kQfk9ppITCZBSAIa_&index=2&autoplay=1"></iframe>
+<iframe width="400" height="310" src="https://www.youtube.com/embed/videoseries?list=PLe_bRVLGaVw76lQ6kQfk9ppITCZBSAIa_&index='.rand(0,15).'&autoplay=1"></iframe>
 </div>
 </div>';}
 
-else if(strpos($text,'list')!==false){
-    
-}
+else if(strpos($text,'list')!==false || strpos($text,'song')!==false){
+    $text = '<iframe width="800" height="400" src="https://www.youtube.com/embed/videoseries?list=PLe_bRVLGaVw76lQ6kQfk9ppITCZBSAIa_&index='.rand(0,15).'" allowfullscreen></iframe>';}
 
 else{
 $text=substr($text,strpos($text,'play')+5,strlen($text));
